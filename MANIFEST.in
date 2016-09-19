@@ -1,0 +1,3 @@
+graft samplelabextension/static
+graft src
+include package.json

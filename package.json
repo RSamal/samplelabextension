@@ -1,0 +1,29 @@
+{
+  "name": "samplelabextension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf docs && rimraf lib && rimraf samplelabextension/static",
+    "build:src": "tsc --project src",
+    "build:extension": "node scripts/buildExtension.js",
+    "build": "npm run build:src && npm run build:extension",
+    "example:browser": "cd examples/browser && npm run update && npm run build",
+    "example:node": "cd examples/node && npm install",
+    "build:examples": "npm run example:browser && npm run example:node",
+    "docs": "typedoc --mode file --module commonjs --excludeNotExported --target es5 --moduleResolution node --out docs/ src",
+    "prepublish": "npm run build"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jupyterlab": "^0.3.0",
+    "phosphor": "^0.6.1"
+  },
+  "devDependencies": {
+    "jupyterlab-extension-builder": "^0.4.1",
+    "rimraf": "^2.5.4",
+    "typedoc": "^0.4.5",
+    "typescript": "^1.8.10"
+  }
+}
